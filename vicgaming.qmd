@@ -24,14 +24,13 @@ lga_shapes =
 
 ```
 
-
 The Victorian Government has announced a trial of mandatory account-based play at select venues from September. See <https://www.premier.vic.gov.au/new-trial-help-prevent-gambling-harm>
 
 The trial will run across all 43 venues with gaming machines in Monash, Greater Dandenong and Ballarat from September to November.
 
 I have updated my `vcglR` package <https://github.com/zerogetsamgow/vcglR> to help those who want to track the effects of the trial. The package includes `tidy` venue and LGA level gaming expenditure and machine count data. Venue locations are also geocoded to enable mapping and working with other data and geographic areas.
 
-Some early observations. 
+Some early observations.
 
 The trial in metropolitan LGAs should provide easily accessible data to measure the effect on gambling expenditure, noting we will be able to compare Monash and Dandenong with neighbouring LGAs. There are also some risks of players shifting to neighbouring venues to avoid the trial.
 
@@ -62,7 +61,7 @@ suppressWarnings(plot(metro_venue_map))
 
 I will update the package as monthly data is released, so it will be possible to observe any effect on expenditure using the LGA level data as shown below.
 
-``` {r lga_expend_plot, echo = FALSE}
+```{r lga_expend_plot, echo = FALSE}
 
 metro_lga_data =
   vcglR::egm_lga_data |> 
@@ -135,7 +134,8 @@ ballarat_venue_map =
 suppressWarnings(plot(ballarat_venue_map))
 
 ```
-``` {r regional_expend_plot, echo = FALSE}
+
+```{r regional_expend_plot, echo = FALSE}
 
 regional_lga_data =
   vcglR::egm_lga_data |> 
@@ -181,6 +181,7 @@ regional_lga_plot =
 
 
 ```
+
 As venue data in the package is geocoded it supports analysis using other geographies like Statistical Areas.
 
 ```{r join_population, echo = FALSE}
@@ -253,7 +254,7 @@ suppressWarnings(plot(metro_sa3_map))
 
 ```
 
-``` {r get_pop, echo = FALSE}
+```{r get_pop, echo = FALSE}
 library(rvest)
 population =
   "https://www.abs.gov.au/statistics/people/population/regional-population/latest-release" |> 
@@ -273,7 +274,7 @@ population =
     x =
       pmap(
         list(url,download),
-        function(a,b) if(!file.exists(b)) download.file(a,b)))  |>
+        function(a,b) if(!file.exists(b)) download.file(a,b, mode = "wb")))  |>
   select(-x) |>
   mutate(sheets = map(download,readxl::excel_sheets)) |>
   unnest(sheets) |>
