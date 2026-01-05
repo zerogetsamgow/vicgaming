@@ -24,6 +24,8 @@ lga_shapes =
 
 ```
 
+
+
 The Victorian Government has announced a trial of mandatory account-based play at select venues from September. See <https://www.premier.vic.gov.au/new-trial-help-prevent-gambling-harm>
 
 The trial will run across all 43 venues with gaming machines in Monash, Greater Dandenong and Ballarat from September to November.
@@ -33,6 +35,8 @@ I have updated my `vcglR` package <https://github.com/zerogetsamgow/vcglR> to he
 Some early observations.
 
 The trial in metropolitan LGAs should provide easily accessible data to measure the effect on gambling expenditure, noting we will be able to compare Monash and Dandenong with neighbouring LGAs. There are also some risks of players shifting to neighbouring venues to avoid the trial.
+
+
 
 ```{r make_melb_map, echo = FALSE}
 metro_venue_map = 
@@ -59,7 +63,11 @@ suppressWarnings(plot(metro_venue_map))
 
 ```
 
+
+
 I will update the package as monthly data is released, so it will be possible to observe any effect on expenditure using the LGA level data as shown below.
+
+
 
 ```{r lga_expend_plot, echo = FALSE}
 
@@ -108,7 +116,11 @@ metro_lga_plot =
 
 ```
 
+
+
 Gaming machines in Ballarat have few substitutes, so players will find it more difficult to move to neighbouring venues to avoid the trial. This also means comparisons for Ballarat will need to be made against similar regional centres rather than neighbouring LGAs.
+
+
 
 ```{r make_ballarat_map, echo = FALSE}
 ballarat_venue_map = 
@@ -181,7 +193,11 @@ regional_lga_plot =
 
 ```
 
+
+
 As venue data in the package is geocoded it supports analysis using other geographies like Statistical Areas.
+
+
 
 ```{r join_population, echo = FALSE}
 
@@ -356,3 +372,4 @@ suprressWarnings(plot(sa3_plot))
 
 
 ```
+
